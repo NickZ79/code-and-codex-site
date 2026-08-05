@@ -351,6 +351,15 @@ select:focus-visible {
   gap: 14px;
 }
 
+/* Grid is 3-up starting at this width (see .services__grid's minmax/gap/
+   max-width math) — only then does centering item 4 under column 2 make
+   sense instead of stranding a column on a 1- or 2-up layout. */
+@media (min-width: 1280px) {
+  .service:nth-child(4) {
+    grid-column: 2;
+  }
+}
+
 .service__num {
   font-family: var(--font-heading);
   font-size: 15px;
