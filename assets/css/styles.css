@@ -488,14 +488,18 @@ select:focus-visible {
 /* ---- Examples: under-construction notice ----------------------------------- */
 
 .examples-empty {
-  padding: 112px var(--gutter) 96px;
+  padding: 152px var(--gutter) 96px;
+  display: flex;
+  justify-content: center;
 }
 
 .examples-empty__inner {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 18px;
   max-width: 52ch;
+  text-align: center;
 }
 
 .examples-empty h2 {
