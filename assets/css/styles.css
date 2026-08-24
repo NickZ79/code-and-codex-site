@@ -292,7 +292,7 @@ select:focus-visible {
 }
 
 .hero__mark {
-  flex: 0 1 420px;
+  flex: 2 1 420px;
   display: flex;
   justify-content: center;
   order: 2;
