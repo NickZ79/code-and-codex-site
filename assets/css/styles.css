@@ -485,34 +485,88 @@ select:focus-visible {
   color: var(--color-neutral-800);
 }
 
-/* ---- Examples: under-construction notice ----------------------------------- */
+/* ---- Examples: project list ------------------------------------------------- */
 
-.examples-empty {
-  padding: 152px var(--gutter) 96px;
-  display: flex;
-  justify-content: center;
-}
-
-.examples-empty__inner {
+.project-list {
+  padding: 112px var(--gutter) 0;
   display: flex;
   flex-direction: column;
+  gap: 128px;
+}
+
+.project {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px 72px;
   align-items: center;
-  gap: 18px;
-  max-width: 52ch;
-  text-align: center;
 }
 
-.examples-empty h2 {
-  font-size: clamp(28px, 3vw, 38px);
-  line-height: 1.15;
-  text-wrap: balance;
+.project:nth-child(even) {
+  flex-wrap: wrap-reverse;
 }
 
-.examples-empty p {
+.project__media {
+  flex: 1 1 560px;
+  min-width: 380px;
+  order: 1;
+}
+
+.project:nth-child(even) .project__media {
+  order: 2;
+}
+
+.project__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--color-neutral-400);
+  overflow: hidden;
+}
+
+.project__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.project__text {
+  flex: 0 1 340px;
+  min-width: 300px;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.project:nth-child(even) .project__text {
+  order: 1;
+}
+
+.project__meta {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  letter-spacing: 0.18em;
+  color: var(--color-gold);
+}
+
+.project__name {
+  font-size: 30px;
+  line-height: 1.12;
+}
+
+.project__blurb {
   font-size: 16.5px;
   line-height: 1.7;
+  max-width: 38ch;
   text-wrap: pretty;
   color: var(--color-neutral-800);
+}
+
+.project__link {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 6px;
 }
 
 /* ---- Examples: closing CTA -------------------------------------------------- */
@@ -751,7 +805,9 @@ textarea.field-input {
   .hero__lede,
   .process__list,
   .contact__main,
-  .contact__aside {
+  .contact__aside,
+  .project__media,
+  .project__text {
     min-width: 0;
   }
 }

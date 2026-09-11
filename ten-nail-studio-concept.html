@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEN. Nail Studio — Concept</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --vamp:#2A1620;
+    --vamp-2:#37202D;
+    --bare:#F3ECE2;
+    --ink:#241612;
+    --honey:#C68A3D;
+    --berry:#7A2048;
+    --sage:#6E7A5C;
+    --line: rgba(243,236,226,0.16);
+    --line-light: rgba(36,22,18,0.14);
+    --maxw: 1140px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bare);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--honey);
+    outline-offset:3px;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* ---------- concept badge ---------- */
+  .concept-badge{
+    background:var(--berry);
+    color:var(--bare);
+    text-align:center;
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.02em;
+    padding:9px 16px;
+  }
+  .concept-badge strong{font-weight:600;}
+
+  /* ---------- nav ---------- */
+  header{
+    background:var(--vamp);
+    color:var(--bare);
+    position:sticky; top:0; z-index:30;
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 0;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-size:26px;
+    color:var(--bare);
+    text-decoration:none;
+    letter-spacing:-0.02em;
+  }
+  .logo .dot{color:var(--honey);}
+  .navlinks{display:flex; gap:34px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:0.02em;
+    color:var(--bare);
+    opacity:0.82;
+    padding:6px 2px;
+    border-bottom:2px solid transparent;
+    transition:opacity .15s, border-color .15s;
+  }
+  .navlinks a:hover{opacity:1; border-color:var(--honey);}
+  .nav-cta{
+    background:var(--honey);
+    color:var(--vamp);
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    padding:10px 20px;
+    border-radius:999px;
+  }
+  .nav-toggle{display:none; background:none; border:0; color:var(--bare); font-size:26px; cursor:pointer;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--vamp);
+    color:var(--bare);
+    padding:64px 0 84px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:56px;
+    align-items:end;
+  }
+  .eyebrow-plain{
+    font-size:14px;
+    color:var(--honey);
+    font-weight:600;
+    margin:0 0 18px;
+  }
+  .hero h1{
+    font-size:clamp(40px, 6vw, 72px);
+    line-height:0.98;
+    max-width:11ch;
+  }
+  .hero p.lede{
+    margin:26px 0 32px;
+    max-width:46ch;
+    font-size:18px;
+    color:rgba(243,236,226,0.82);
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    padding:14px 26px;
+    border-radius:999px;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--honey); color:var(--vamp);}
+  .btn-primary:hover{background:#D89A4E;}
+  .btn-outline{background:transparent; color:var(--bare); border-color:rgba(243,236,226,0.5);}
+  .btn-outline:hover{border-color:var(--bare);}
+
+  /* swatch strip */
+  .swatchstrip{display:flex; flex-direction:column; gap:0; border:1px solid var(--line);}
+  .swatch{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 18px;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  .swatch:last-child{border-bottom:none;}
+  .swatch .name{font-weight:600;}
+  .swatch .chip{
+    width:22px; height:22px; border-radius:50%;
+    display:inline-block; margin-right:12px; flex:none;
+    border:1px solid rgba(243,236,226,0.35);
+  }
+  .swatch-left{display:flex; align-items:center;}
+  .swatch .code{opacity:0.55; font-size:12px;}
+
+  /* ---------- section headers ---------- */
+  .section{padding:88px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:44px; flex-wrap:wrap;
+  }
+  .section-label{
+    font-size:13px; font-weight:600; letter-spacing:0.03em;
+    color:var(--berry);
+    margin:0 0 10px;
+  }
+  .section h2{font-size:clamp(30px,4vw,42px); max-width:14ch;}
+  .section-note{max-width:34ch; font-size:15px; color:rgba(36,22,18,0.7); text-align:right;}
+
+  /* ---------- services ---------- */
+  .services{background:var(--bare);}
+  .svc-group{margin-bottom:40px;}
+  .svc-group h3{
+    font-size:20px; font-weight:600; font-family:'Work Sans',sans-serif;
+    text-transform:none;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:10px; margin-bottom:6px;
+  }
+  .svc-row{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line-light);
+  }
+  .svc-row:last-child{border-bottom:none;}
+  .svc-name{font-weight:500;}
+  .svc-desc{font-size:14px; color:rgba(36,22,18,0.6); margin-top:3px;}
+  .svc-price{font-weight:600; white-space:nowrap; font-variant-numeric:tabular-nums;}
+
+  /* ---------- team ---------- */
+  .team{background:var(--vamp); color:var(--bare);}
+  .team .section-label{color:var(--honey);}
+  .team .section-note{color:rgba(243,236,226,0.65);}
+  .team-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:28px;
+  }
+  .tech{border:1px solid var(--line); padding:26px 20px;}
+  .avatar{
+    width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:600; font-size:20px;
+    color:var(--vamp);
+    margin-bottom:18px;
+  }
+  .tech h4{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 4px;}
+  .tech .role{font-size:13px; color:var(--honey); margin-bottom:12px;}
+  .tech p{font-size:14px; color:rgba(243,236,226,0.78); margin:0 0 16px;}
+  .tech a{font-size:13px; font-weight:600; text-decoration:underline; text-underline-offset:3px;}
+
+  /* ---------- gallery / shade menu ---------- */
+  .shademenu{background:var(--bare);}
+  .shade-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:2px;
+    border:1px solid var(--ink);
+  }
+  .shade-tile{
+    aspect-ratio:1/1;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:16px;
+    position:relative;
+    color:var(--bare);
+  }
+  .shade-tile h4{font-family:'Work Sans',sans-serif; font-weight:600; font-size:15px; margin:0;}
+  .shade-tile span{font-size:12px; opacity:0.85;}
+
+  /* ---------- policies ---------- */
+  .policies{background:var(--berry); color:var(--bare); padding:56px 0;}
+  .policy-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+  .policy-grid h4{font-family:'Fraunces',serif; font-size:19px; font-weight:600; margin:0 0 8px;}
+  .policy-grid p{font-size:14px; color:rgba(243,236,226,0.82); margin:0;}
+
+  /* ---------- book ---------- */
+  .book{background:var(--bare); padding:88px 0;}
+  .book-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+  .book-embed{
+    border:2px dashed var(--ink);
+    padding:40px 28px;
+    text-align:center;
+    color:rgba(36,22,18,0.65);
+    font-size:14px;
+  }
+  .book-embed strong{display:block; font-family:'Fraunces', serif; font-weight:600; font-size:18px; color:var(--ink); margin-bottom:8px;}
+  .info-list{list-style:none; padding:0; margin:0;}
+  .info-list li{display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line-light);}
+  .info-list li:last-child{border-bottom:none;}
+  .info-list .k{width:90px; flex:none; font-size:13px; font-weight:600; color:var(--berry);}
+  .info-list .v{font-size:15px;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--vamp); color:rgba(243,236,226,0.65); padding:40px 0;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:13px;}
+  footer a{color:var(--honey); text-decoration:none;}
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 880px){
+    .hero-grid{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:repeat(2,1fr);}
+    .shade-grid{grid-template-columns:repeat(2,1fr);}
+    .policy-grid{grid-template-columns:1fr;}
+    .book-grid{grid-template-columns:1fr;}
+    .section-note{text-align:left;}
+  }
+  @media (max-width: 700px){
+    .navlinks{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--vamp);
+      flex-direction:column; gap:0;
+      max-height:0; overflow:hidden;
+      transition:max-height .25s ease;
+      border-top:1px solid var(--line);
+    }
+    .navlinks.open{max-height:320px;}
+    .navlinks li{width:100%;}
+    .navlinks a{display:block; padding:16px 28px; border-bottom:1px solid var(--line);}
+    .nav-cta{display:none;}
+    .nav-toggle{display:block;}
+    .team-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="concept-badge">CONCEPT / DESIGN SAMPLE — a hypothetical nail studio built to demonstrate site structure, not a real business. Made by <strong>Code and Codex LLC</strong>.</div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="logo">TEN<span class="dot">.</span></a>
+      <ul class="navlinks" id="navlinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#shades">Shade Menu</a></li>
+        <li><a href="#book">Visit</a></li>
+      </ul>
+      <a href="#book" class="nav-cta">Book Now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow-plain">Westland, Michigan</p>
+      <h1>Ten fingers. One studio. No rush.</h1>
+      <p class="lede">A neighborhood nail studio built around unhurried appointments, honest pricing, and a shade wall you can actually see in daylight.</p>
+      <div class="hero-ctas">
+        <a href="#book" class="btn btn-primary">Book an appointment</a>
+        <a href="#services" class="btn btn-outline">See pricing</a>
+      </div>
+    </div>
+    <div class="swatchstrip">
+      <div class="swatch"><span class="swatch-left"><span class="chip" style="background:var(--honey)"></span><span class="name">Honey</span></span><span class="code">No. 02</span></div>
+      <div class="swatch"><span class="swatch-left"><span class="chip" style="background:var(--berry)"></span><span class="name">Berry</span></span><span class="code">No. 05</span></div>
+      <div class="swatch"><span class="swatch-left"><span class="chip" style="background:var(--sage)"></span><span class="name">Sage</span></span><span class="code">No. 07</span></div>
+      <div class="swatch"><span class="swatch-left"><span class="chip" style="background:#8B3A2B"></span><span class="name">Clay</span></span><span class="code">No. 09</span></div>
+      <div class="swatch"><span class="swatch-left"><span class="chip" style="background:#E7D9C4"></span><span class="name">Bare</span></span><span class="code">No. 01</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="section-label">Pricing</p>
+        <h2>Simple menu, straight prices</h2>
+      </div>
+      <p class="section-note">No add-on surprises at checkout — everything you'll pay is listed here.</p>
+    </div>
+
+    <div class="svc-group">
+      <h3>Manicures</h3>
+      <div class="svc-row">
+        <div><div class="svc-name">Classic Manicure</div><div class="svc-desc">Shape, cuticle care, polish</div></div>
+        <div class="svc-price">$28</div>
+      </div>
+      <div class="svc-row">
+        <div><div class="svc-name">Gel Manicure</div><div class="svc-desc">Classic manicure with long-wear gel</div></div>
+        <div class="svc-price">$42</div>
+      </div>
+      <div class="svc-row">
+        <div><div class="svc-name">Builder Gel Overlay</div><div class="svc-desc">Strengthening layer over natural nail</div></div>
+        <div class="svc-price">$55</div>
+      </div>
+    </div>
+
+    <div class="svc-group">
+      <h3>Pedicures</h3>
+      <div class="svc-row">
+        <div><div class="svc-name">Classic Pedicure</div><div class="svc-desc">Soak, shape, callus care, polish</div></div>
+        <div class="svc-price">$38</div>
+      </div>
+      <div class="svc-row">
+        <div><div class="svc-name">Studio Pedicure</div><div class="svc-desc">Classic pedicure with extended massage</div></div>
+        <div class="svc-price">$55</div>
+      </div>
+    </div>
+
+    <div class="svc-group">
+      <h3>Add-Ons</h3>
+      <div class="svc-row">
+        <div><div class="svc-name">Hand-Painted Nail Art</div><div class="svc-desc">Per hand, design-dependent</div></div>
+        <div class="svc-price">from $10</div>
+      </div>
+      <div class="svc-row">
+        <div><div class="svc-name">Chrome / Cat-Eye Finish</div><div class="svc-desc">Full set</div></div>
+        <div class="svc-price">$15</div>
+      </div>
+      <div class="svc-row">
+        <div><div class="svc-name">Soak-Off (Other Salon's Work)</div><div class="svc-desc"></div></div>
+        <div class="svc-price">$12</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section team" id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="section-label">The Studio</p>
+        <h2>Book with someone by name</h2>
+      </div>
+      <p class="section-note">Every tech keeps their own calendar — pick a person, not just a time slot.</p>
+    </div>
+    <div class="team-grid">
+      <div class="tech">
+        <div class="avatar" style="background:var(--honey)">R</div>
+        <h4>Rosa</h4>
+        <div class="role">Owner · Nail Art</div>
+        <p>Specializes in hand-painted and fine-line work. Booked furthest out.</p>
+        <a href="#book">Book with Rosa &rarr;</a>
+      </div>
+      <div class="tech">
+        <div class="avatar" style="background:var(--berry)">M</div>
+        <h4>Mai</h4>
+        <div class="role">Gel &amp; Builder Specialist</div>
+        <p>Focused on long-wear structure — strong recommendation for nail-biters.</p>
+        <a href="#book">Book with Mai &rarr;</a>
+      </div>
+      <div class="tech">
+        <div class="avatar" style="background:var(--sage)">D</div>
+        <h4>Dana</h4>
+        <div class="role">Pedicures</div>
+        <p>Runs the studio's longer, slower pedicure service.</p>
+        <a href="#book">Book with Dana &rarr;</a>
+      </div>
+      <div class="tech">
+        <div class="avatar" style="background:#8B3A2B">J</div>
+        <h4>Jess</h4>
+        <div class="role">Walk-In Tech</div>
+        <p>Keeps same-day availability open for walk-ins most weekdays.</p>
+        <a href="#book">Book with Jess &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section shademenu" id="shades">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="section-label">Shade Menu</p>
+        <h2>Browse by finish, not by wall</h2>
+      </div>
+      <p class="section-note">The four finishes we're asked for most — full color library shown in-studio.</p>
+    </div>
+    <div class="shade-grid">
+      <div class="shade-tile" style="background:var(--honey)">
+        <h4>Solid</h4>
+        <span>Classic opaque color</span>
+      </div>
+      <div class="shade-tile" style="background:var(--berry)">
+        <h4>French &amp; Ombr&eacute;</h4>
+        <span>Gradient and tip work</span>
+      </div>
+      <div class="shade-tile" style="background:var(--sage)">
+        <h4>Chrome &amp; Cat-Eye</h4>
+        <span>Metallic and reflective finishes</span>
+      </div>
+      <div class="shade-tile" style="background:#8B3A2B">
+        <h4>Hand-Painted Art</h4>
+        <span>Custom, per design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="policies">
+  <div class="wrap policy-grid">
+    <div>
+      <h4>Cancellations</h4>
+      <p>Full refund with 24 hours' notice. Same-day cancellations and no-shows are charged 50% of the booked service.</p>
+    </div>
+    <div>
+      <h4>Walk-Ins</h4>
+      <p>Welcome most weekdays with Jess — appointments still get priority seating.</p>
+    </div>
+    <div>
+      <h4>Age Policy</h4>
+      <p>Kids' manicures available for ages 8+ when accompanied by an adult.</p>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <p class="section-label">Visit</p>
+      <h2>Book your appointment</h2>
+      <div class="book-embed" style="margin-top:28px;">
+        <strong>Booking widget goes here</strong>
+        In the real build, this space embeds the studio's actual scheduling platform — Fresha, GlossGenius, Vagaro, or Square Appointments — so clients book, pay deposits, and get reminders through one system.
+      </div>
+    </div>
+    <div>
+      <ul class="info-list">
+        <li><span class="k">Address</span><span class="v">34712 Warren Rd, Westland, MI 48185</span></li>
+        <li><span class="k">Phone</span><span class="v">(734) 555-0148</span></li>
+        <li><span class="k">Hours</span><span class="v">Tue&ndash;Fri 10&ndash;7 &middot; Sat 9&ndash;5 &middot; Sun&ndash;Mon Closed</span></li>
+        <li><span class="k">Parking</span><span class="v">Free lot, entrance faces Warren Rd</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>TEN. Nail Studio is a concept design, not a real business.</span>
+    <span>Design sample by <a href="#">Code and Codex LLC</a></span>
+  </div>
+</footer>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navlinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>

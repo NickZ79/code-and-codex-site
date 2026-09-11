@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ironside Barber Co. — Concept</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --steel:#1B1F22;
+    --steel-2:#242A2E;
+    --chalk:#EDEAE3;
+    --oxide:#8C4A2B;
+    --oxide-bright:#B4602F;
+    --brass:#A8863C;
+    --slate:#2F4858;
+    --line: rgba(237,234,227,0.14);
+    --line-light: rgba(27,31,34,0.14);
+    --maxw: 1160px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--chalk);
+    color:var(--steel);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bebas Neue', sans-serif;
+    font-weight:400;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--brass);
+    outline-offset:3px;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* ---------- concept badge ---------- */
+  .concept-badge{
+    background:var(--oxide);
+    color:var(--chalk);
+    text-align:center;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:0.01em;
+    padding:9px 16px;
+  }
+  .concept-badge strong{font-weight:700;}
+
+  /* ---------- nav ---------- */
+  header{background:var(--steel); color:var(--chalk); position:sticky; top:0; z-index:30;}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .logo{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:30px;
+    letter-spacing:0.03em;
+    color:var(--chalk);
+    text-decoration:none;
+  }
+  .logo span{color:var(--brass);}
+  .navlinks{display:flex; gap:32px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    text-decoration:none; font-size:13px; font-weight:600; letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--chalk); opacity:0.8;
+    padding:6px 2px; border-bottom:2px solid transparent;
+    transition:opacity .15s, border-color .15s;
+  }
+  .navlinks a:hover{opacity:1; border-color:var(--brass);}
+  .nav-cta{
+    background:var(--brass); color:var(--steel); text-decoration:none;
+    font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.03em;
+    padding:11px 22px;
+  }
+  .nav-toggle{display:none; background:none; border:0; color:var(--chalk); font-size:26px; cursor:pointer;}
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--steel); color:var(--chalk); padding:70px 0 0;}
+  .hero-top{display:flex; justify-content:space-between; align-items:flex-start; gap:40px; padding-bottom:56px;}
+  .status-chip{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--line);
+    padding:8px 14px;
+    font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .status-dot{width:8px; height:8px; border-radius:50%; background:#7A9E6E; flex:none;}
+  .hero h1{
+    font-size:clamp(52px, 9vw, 108px);
+    line-height:0.92;
+    text-transform:uppercase;
+  }
+  .hero h1 .accent{color:var(--brass);}
+  .hero p.lede{max-width:44ch; margin:24px 0 32px; font-size:18px; color:rgba(237,234,227,0.78);}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:8px;}
+  .btn{
+    display:inline-block; text-decoration:none; font-weight:700; font-size:13px;
+    text-transform:uppercase; letter-spacing:0.04em;
+    padding:15px 28px; border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--brass); color:var(--steel);}
+  .btn-primary:hover{background:#BC9950;}
+  .btn-outline{background:transparent; color:var(--chalk); border-color:rgba(237,234,227,0.45);}
+  .btn-outline:hover{border-color:var(--chalk);}
+  .hero-strip{
+    border-top:1px solid var(--line);
+    display:grid; grid-template-columns:repeat(4,1fr);
+  }
+  .hero-strip div{
+    padding:20px 28px; border-right:1px solid var(--line);
+    font-size:13px; color:rgba(237,234,227,0.7);
+  }
+  .hero-strip div:last-child{border-right:none;}
+  .hero-strip strong{display:block; font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.02em; color:var(--chalk); margin-bottom:2px;}
+
+  /* ---------- section headers ---------- */
+  .section{padding:88px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap;}
+  .section-label{font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--oxide); margin:0 0 10px;}
+  .section h2{font-size:clamp(34px,5vw,54px); text-transform:uppercase; max-width:16ch;}
+  .section-note{max-width:32ch; font-size:14px; color:rgba(27,31,34,0.62); text-align:right;}
+
+  /* ---------- price board ---------- */
+  .board{background:var(--steel); color:var(--chalk);}
+  .board .section-label{color:var(--brass);}
+  .board .section-note{color:rgba(237,234,227,0.6);}
+  .board-frame{border:2px solid var(--brass); padding:8px;}
+  .board-inner{border:1px solid var(--line); padding:8px 0;}
+  .svc-row{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    padding:16px 28px; border-bottom:1px dashed var(--line);
+  }
+  .svc-row:last-child{border-bottom:none;}
+  .svc-name{font-size:17px; font-weight:600;}
+  .svc-desc{font-size:13px; color:rgba(237,234,227,0.55); margin-top:2px;}
+  .svc-price{font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--brass); white-space:nowrap;}
+  .board-group-label{
+    padding:14px 28px 4px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    color:rgba(237,234,227,0.5);
+  }
+
+  /* ---------- guard guide ---------- */
+  .guide{background:var(--chalk);}
+  .guide-strip{display:grid; grid-template-columns:repeat(8,1fr); border:1px solid var(--steel);}
+  .guard{
+    padding:22px 14px; border-right:1px solid var(--line-light); text-align:center;
+  }
+  .guard:last-child{border-right:none;}
+  .guard .num{font-family:'Bebas Neue',sans-serif; font-size:34px; color:var(--oxide);}
+  .guard .len{font-family:'IBM Plex Mono',monospace; font-size:12px; margin:4px 0 8px;}
+  .guard .desc{font-size:12px; color:rgba(27,31,34,0.6); line-height:1.4;}
+
+  /* ---------- team ---------- */
+  .team{background:var(--slate); color:var(--chalk);}
+  .team .section-label{color:var(--brass);}
+  .team .section-note{color:rgba(237,234,227,0.65);}
+  .team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--line);}
+  .barber{background:var(--slate); padding:26px 22px;}
+  .plate{
+    display:inline-block; background:var(--steel); color:var(--brass);
+    font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.03em;
+    padding:8px 14px; margin-bottom:18px;
+  }
+  .barber h4{font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:0.02em; margin:0 0 2px;}
+  .barber .role{font-size:12px; color:var(--brass); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:12px;}
+  .barber p{font-size:14px; color:rgba(237,234,227,0.78); margin:0 0 16px;}
+  .barber a{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; text-decoration:underline; text-underline-offset:3px;}
+
+  /* ---------- policies ---------- */
+  .policies{background:var(--oxide); color:var(--chalk); padding:56px 0;}
+  .policy-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+  .policy-grid h4{font-family:'Bebas Neue',sans-serif; font-size:20px; text-transform:uppercase; margin:0 0 8px;}
+  .policy-grid p{font-size:14px; color:rgba(237,234,227,0.85); margin:0;}
+
+  /* ---------- book ---------- */
+  .book{background:var(--chalk); padding:88px 0;}
+  .book-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+  .book-embed{border:2px dashed var(--steel); padding:40px 28px; text-align:center; color:rgba(27,31,34,0.65); font-size:14px;}
+  .book-embed strong{display:block; font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.02em; color:var(--steel); margin-bottom:8px; text-transform:uppercase;}
+  .info-list{list-style:none; padding:0; margin:0;}
+  .info-list li{display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line-light);}
+  .info-list li:last-child{border-bottom:none;}
+  .info-list .k{width:90px; flex:none; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; color:var(--oxide);}
+  .info-list .v{font-size:15px;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--steel); color:rgba(237,234,227,0.6); padding:36px 0;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:13px;}
+  footer a{color:var(--brass); text-decoration:none;}
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px){
+    .team-grid{grid-template-columns:repeat(2,1fr);}
+    .guide-strip{grid-template-columns:repeat(4,1fr);}
+    .hero-strip{grid-template-columns:repeat(2,1fr);}
+    .hero-strip div:nth-child(2){border-right:none;}
+    .policy-grid{grid-template-columns:1fr;}
+    .book-grid{grid-template-columns:1fr;}
+    .section-note{text-align:left;}
+  }
+  @media (max-width: 700px){
+    .hero-top{flex-direction:column; gap:18px;}
+    .guide-strip{grid-template-columns:repeat(2,1fr);}
+    .guard{border-bottom:1px solid var(--line-light);}
+    .navlinks{
+      position:absolute; top:100%; left:0; right:0; background:var(--steel);
+      flex-direction:column; gap:0; max-height:0; overflow:hidden;
+      transition:max-height .25s ease; border-top:1px solid var(--line);
+    }
+    .navlinks.open{max-height:320px;}
+    .navlinks a{display:block; padding:16px 28px; border-bottom:1px solid var(--line);}
+    .nav-cta{display:none;}
+    .nav-toggle{display:block;}
+    .team-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="concept-badge">CONCEPT / DESIGN SAMPLE — a hypothetical barbershop built to demonstrate site structure, not a real business. Made by <strong>Code and Codex LLC</strong>.</div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="logo">IRONSIDE<span>.</span></a>
+      <ul class="navlinks" id="navlinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#guide">Guard Guide</a></li>
+        <li><a href="#team">Barbers</a></li>
+        <li><a href="#book">Visit</a></li>
+      </ul>
+      <a href="#book" class="nav-cta">Book Now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <h1>Cut clean.<br>No <span class="accent">appointment</span><br>required.</h1>
+        <p class="lede">A working barbershop on the west side — four chairs, honest prices, and a line that moves. Book ahead or take your chances on a walk-in.</p>
+        <div class="hero-ctas">
+          <a href="#book" class="btn btn-primary">Book a chair</a>
+          <a href="#services" class="btn btn-outline">See prices</a>
+        </div>
+      </div>
+      <div class="status-chip"><span class="status-dot"></span>Walk-Ins Open</div>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div><strong>4</strong>Chairs working</div>
+    <div><strong>22</strong>Years of service</div>
+    <div><strong>Cash + Card</strong>Payment</div>
+    <div><strong>Tue&ndash;Sat</strong>Open days</div>
+  </div>
+</section>
+
+<section class="section board" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="section-label">On The Wall</p>
+        <h2>Prices, straight up</h2>
+      </div>
+      <p class="section-note">Same board that's hanging by the register — no upsell script.</p>
+    </div>
+    <div class="board-frame">
+      <div class="board-inner">
+        <div class="board-group-label">Cuts</div>
+        <div class="svc-row">
+          <div><div class="svc-name">Standard Cut</div><div class="svc-desc">Clipper or scissor, your call</div></div>
+          <div class="svc-price">$22</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Cut + Beard Line-Up</div><div class="svc-desc"></div></div>
+          <div class="svc-price">$32</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Kids Cut (12 &amp; under)</div><div class="svc-desc"></div></div>
+          <div class="svc-price">$16</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Senior Cut (65+)</div><div class="svc-desc"></div></div>
+          <div class="svc-price">$16</div>
+        </div>
+
+        <div class="board-group-label">Razor &amp; Beard</div>
+        <div class="svc-row">
+          <div><div class="svc-name">Hot Towel Shave</div><div class="svc-desc">Straight razor, full lather</div></div>
+          <div class="svc-price">$28</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Beard Trim</div><div class="svc-desc">Shape and line only</div></div>
+          <div class="svc-price">$14</div>
+        </div>
+        <div class="svc-row">
+          <div><div class="svc-name">Neck &amp; Edge Cleanup</div><div class="svc-desc">Between-cut touch-up</div></div>
+          <div class="svc-price">$10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section guide" id="guide">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="section-label">Know Before You Sit</p>
+        <h2>The guard guide</h2>
+      </div>
+      <p class="section-note">Not sure what to ask for? Point at a number.</p>
+    </div>
+    <div class="guide-strip">
+      <div class="guard"><div class="num">1</div><div class="len mono">1/8&Prime;</div><div class="desc">Skin-close, high-and-tight territory</div></div>
+      <div class="guard"><div class="num">2</div><div class="len mono">1/4&Prime;</div><div class="desc">Short fade base, low maintenance</div></div>
+      <div class="guard"><div class="num">3</div><div class="len mono">3/8&Prime;</div><div class="desc">Classic short crop</div></div>
+      <div class="guard"><div class="num">4</div><div class="len mono">1/2&Prime;</div><div class="desc">Most requested — safe middle ground</div></div>
+      <div class="guard"><div class="num">5</div><div class="len mono">5/8&Prime;</div><div class="desc">Holds texture, still tidy</div></div>
+      <div class="guard"><div class="num">6</div><div class="len mono">3/4&Prime;</div><div class="desc">More length up top</div></div>
+      <div class="guard"><div class="num">7</div><div class="len mono">7/8&Prime;</div><div class="desc">For growing it out</div></div>
+      <div class="guard"><div class="num">8</div><div class="len mono">1&Prime;</div><div class="desc">Scissor-work territory</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section team" id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="section-label">The Chairs</p>
+        <h2>Four barbers, four chairs</h2>
+      </div>
+      <p class="section-note">Regulars book by name — first-timers can pick by specialty.</p>
+    </div>
+    <div class="team-grid">
+      <div class="barber">
+        <div class="plate">RT</div>
+        <h4>Ray Tomczak</h4>
+        <div class="role">Owner &middot; Chair 1</div>
+        <p>Been behind this chair since the shop opened. Old-school fades, no small talk required.</p>
+        <a href="#book">Book Chair 1 &rarr;</a>
+      </div>
+      <div class="barber">
+        <div class="plate">DW</div>
+        <h4>Dez Washington</h4>
+        <div class="role">Chair 2 &middot; Design Work</div>
+        <p>Line-ups, part designs, and anything that needs a steady hand with a trimmer.</p>
+        <a href="#book">Book Chair 2 &rarr;</a>
+      </div>
+      <div class="barber">
+        <div class="plate">AL</div>
+        <h4>Al Kowalski</h4>
+        <div class="role">Chair 3 &middot; Straight Razor</div>
+        <p>Runs the hot towel shave. Books out fastest on Saturdays.</p>
+        <a href="#book">Book Chair 3 &rarr;</a>
+      </div>
+      <div class="barber">
+        <div class="plate">JC</div>
+        <h4>Jordan Cho</h4>
+        <div class="role">Chair 4 &middot; Walk-Ins</div>
+        <p>Keeps Chair 4 open for same-day walk-ins most afternoons.</p>
+        <a href="#book">Book Chair 4 &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="policies">
+  <div class="wrap policy-grid">
+    <div>
+      <h4>Walk-Ins</h4>
+      <p>Always welcome at Chair 4. Other chairs run by appointment once regulars are booked in.</p>
+    </div>
+    <div>
+      <h4>No-Shows</h4>
+      <p>Two no-shows without a call and future bookings need a card on file.</p>
+    </div>
+    <div>
+      <h4>Payment</h4>
+      <p>Cash preferred, card accepted with a small processing fee.</p>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <p class="section-label">Visit</p>
+      <h2>Book a chair</h2>
+      <div class="book-embed" style="margin-top:28px;">
+        <strong>Booking Widget Goes Here</strong>
+        In the real build, this space embeds the shop's actual scheduling platform — Square Appointments, Booksy, or a simple call-to-book line for shops that stay walk-in-first.
+      </div>
+    </div>
+    <div>
+      <ul class="info-list">
+        <li><span class="k">Address</span><span class="v">8112 N Merriman Rd, Westland, MI 48185</span></li>
+        <li><span class="k">Phone</span><span class="v">(734) 555-0119</span></li>
+        <li><span class="k">Hours</span><span class="v">Tue&ndash;Fri 9&ndash;6 &middot; Sat 8&ndash;4 &middot; Sun&ndash;Mon Closed</span></li>
+        <li><span class="k">Parking</span><span class="v">Free lot behind the building</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>Ironside Barber Co. is a concept design, not a real business.</span>
+    <span>Design sample by <a href="#">Code and Codex LLC</a></span>
+  </div>
+</footer>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navlinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
