@@ -860,9 +860,16 @@ textarea.field-input {
    crop clips the "Club of Dearborn" wordmark; shifting left keeps the
    full lockup in frame and crops into the plain background on the right
    instead. */
-.project__thumb img.thumb-rotary,
+/* This screenshot's native ratio (1400x598) is wider than the shared
+   16:10 crop box, so cover always cropped something -- either the
+   wordmark or the photo. Matching the box's own ratio to the image
+   instead shows it exactly as it looks on the real site, uncropped. */
+.project__thumb:has(> .thumb-rotary) {
+  aspect-ratio: 1400 / 598;
+}
+
 .recent-work__media img.thumb-rotary {
-  object-position: 20% top;
+  aspect-ratio: 1400 / 598;
 }
 
 .recent-work h2 {
