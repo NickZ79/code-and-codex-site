@@ -351,18 +351,6 @@ select:focus-visible {
   gap: 14px;
 }
 
-/* Grid is 4-up starting at this width (4 * 320px + 3 * 88px gaps = 1544px
-   of content, plus the 72px gutter on each side). Below it the grid falls
-   back to 3-, 2- or 1-up on its own via auto-fit — only above it does
-   spanning the middle two columns actually center a 5th, trailing card
-   instead of just shifting it. */
-@media (min-width: 1690px) {
-  .packages .service:nth-child(5) {
-    grid-column: 2 / span 2;
-    justify-self: center;
-  }
-}
-
 .service__num {
   font-family: var(--font-heading);
   font-size: 15px;
@@ -816,12 +804,32 @@ textarea.field-input {
   padding: 136px var(--gutter) 0;
 }
 
+.recent-work__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px 72px;
+  align-items: center;
+}
+
 .recent-work__inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
-  max-width: 620px;
+  flex: 0 1 460px;
+  min-width: 320px;
+}
+
+.recent-work__media {
+  flex: 1 1 480px;
+  min-width: 320px;
+}
+
+.recent-work__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
 }
 
 .recent-work h2 {
@@ -851,7 +859,9 @@ textarea.field-input {
   .contact__main,
   .contact__aside,
   .project__media,
-  .project__text {
+  .project__text,
+  .recent-work__inner,
+  .recent-work__media {
     min-width: 0;
   }
 }
