@@ -288,7 +288,7 @@ select:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 64px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hero__mark {
@@ -821,8 +821,9 @@ textarea.field-input {
 }
 
 .recent-work__media {
-  flex: 1 1 480px;
+  flex: 0 1 420px;
   min-width: 320px;
+  max-width: 420px;
 }
 
 .recent-work__media img {
