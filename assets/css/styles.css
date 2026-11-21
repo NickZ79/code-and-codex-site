@@ -799,6 +799,39 @@ textarea.field-input {
   gap: 8px;
 }
 
+/* ---- Home: lead-gen additions --------------------------------------------- */
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: baseline;
+  margin-top: 28px;
+}
+
+.recent-work {
+  padding: 136px var(--gutter) 0;
+}
+
+.recent-work h2 {
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: 1.1;
+  max-width: 26ch;
+  text-wrap: balance;
+}
+
+.recent-work__text,
+.packages__note {
+  font-size: 16.5px;
+  line-height: 1.7;
+  max-width: 56ch;
+  color: var(--color-neutral-800);
+}
+
+.packages__note {
+  margin-top: 56px;
+}
+
 /* ---- Small screens ------------------------------------------------------------ */
 
 @media (max-width: 640px) {
