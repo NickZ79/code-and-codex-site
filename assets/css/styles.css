@@ -353,9 +353,12 @@ select:focus-visible {
 
 /* Grid is 3-up starting at this width (see .services__grid's minmax/gap/
    max-width math) — only then does centering item 4 under column 2 make
-   sense instead of stranding a column on a 1- or 2-up layout. */
+   sense instead of stranding a column on a 1- or 2-up layout. Scoped to
+   the original "Four things, done properly" grid only — the Packages
+   grid's 4th card (and the note below it) should stay flush with
+   column 1 instead of floating center-right. */
 @media (min-width: 1280px) {
-  .service:nth-child(4) {
+  .services:not(.packages) .service:nth-child(4) {
     grid-column: 2;
   }
 }
@@ -811,6 +814,14 @@ textarea.field-input {
 
 .recent-work {
   padding: 136px var(--gutter) 0;
+}
+
+.recent-work__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: 620px;
 }
 
 .recent-work h2 {
