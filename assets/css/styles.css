@@ -862,7 +862,7 @@ textarea.field-input {
    instead. */
 .project__thumb img.thumb-rotary,
 .recent-work__media img.thumb-rotary {
-  object-position: left top;
+  object-position: 20% top;
 }
 
 .recent-work h2 {
