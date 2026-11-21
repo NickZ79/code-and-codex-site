@@ -342,7 +342,7 @@ select:focus-visible {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 72px 88px;
-  max-width: 1180px;
+  max-width: 1560px;
 }
 
 .service {
@@ -351,15 +351,14 @@ select:focus-visible {
   gap: 14px;
 }
 
-/* Grid is 3-up starting at this width (see .services__grid's minmax/gap/
-   max-width math) — only then does centering item 4 under column 2 make
-   sense instead of stranding a column on a 1- or 2-up layout. Scoped to
-   the original "Four things, done properly" grid only — the Packages
-   grid's 4th card (and the note below it) should stay flush with
-   column 1 instead of floating center-right. */
-@media (min-width: 1280px) {
-  .services:not(.packages) .service:nth-child(4) {
-    grid-column: 2;
+/* Grid is 4-up starting at this width (4 * 320px + 3 * 88px gaps = 1544px
+   of content, plus the 72px gutter on each side). Below it the grid falls
+   back to 3-, 2- or 1-up on its own via auto-fit — only above it does
+   spanning the middle two columns actually center a 5th, trailing card
+   instead of just shifting it. */
+@media (min-width: 1690px) {
+  .packages .service:nth-child(5) {
+    grid-column: 2 / span 2;
   }
 }
 
