@@ -265,14 +265,23 @@ select:focus-visible {
 
 /* ---- Home: hero ---------------------------------------------------------- */
 
+/* Grid, not flex: the headline needs to span the full width (a ch cap or
+   a shared column collapses it onto extra lines), while the mark needs to
+   start at the very top, level with the headline — flush against the
+   lede alone, like before, left it stranded below an empty gap, and
+   putting it in a shared column with the headline narrowed the headline.
+   Spanning the mark across both rows in its own column solves both. */
 .hero {
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(420px, 2fr);
+  column-gap: 64px;
+  row-gap: 56px;
   padding: 104px var(--gutter) 0;
 }
 
 .hero__headline {
+  grid-column: 1 / -1;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -284,18 +293,17 @@ select:focus-visible {
   text-wrap: balance;
 }
 
-.hero__intro {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 64px;
-  align-items: flex-start;
+.hero__lede {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .hero__mark {
-  flex: 2 1 420px;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
   display: flex;
   justify-content: center;
-  order: 2;
 }
 
 .hero__mark img {
@@ -303,10 +311,24 @@ select:focus-visible {
   height: 420px;
 }
 
-.hero__lede {
-  flex: 1 1 340px;
-  min-width: 300px;
-  order: 1;
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero__headline,
+  .hero__lede,
+  .hero__mark {
+    grid-column: 1;
+  }
+  .hero__headline {
+    grid-row: 1;
+  }
+  .hero__lede {
+    grid-row: 2;
+  }
+  .hero__mark {
+    grid-row: 3;
+  }
 }
 
 .hero__lede p {
@@ -855,7 +877,6 @@ textarea.field-input {
 /* ---- Small screens ------------------------------------------------------------ */
 
 @media (max-width: 640px) {
-  .hero__lede,
   .process__list,
   .contact__main,
   .contact__aside,
