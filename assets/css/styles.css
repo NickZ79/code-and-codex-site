@@ -855,6 +855,16 @@ textarea.field-input {
   object-fit: cover;
 }
 
+/* This screenshot is wider than the 16:10 crop box (it's a direct capture,
+   not shot to that ratio), so cover crops its left/right edges. Centered
+   crop clips the "Club of Dearborn" wordmark; shifting left keeps the
+   full lockup in frame and crops into the plain background on the right
+   instead. */
+.project__thumb img.thumb-rotary,
+.recent-work__media img.thumb-rotary {
+  object-position: left top;
+}
+
 .recent-work h2 {
   font-size: clamp(30px, 3.4vw, 44px);
   line-height: 1.1;
