@@ -812,16 +812,6 @@ textarea.field-input {
   gap: 8px;
 }
 
-/* ---- Home: lead-gen additions --------------------------------------------- */
-
-.hero__cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-  align-items: baseline;
-  margin-top: 28px;
-}
-
 .recent-work {
   padding: 136px var(--gutter) 0;
 }
